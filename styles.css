@@ -26,13 +26,12 @@ main{padding:22px 24px 34px;min-height:76vh}.heading{display:flex;justify-conten
 .bath-live-cloud{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}.bath-live-cloud i{position:absolute;bottom:12%;width:clamp(11px,2.1vw,29px);height:clamp(11px,2.1vw,29px);border-radius:50%;border:2px solid #ffffffc9;background:radial-gradient(circle at 30% 25%,#fff,#b5d8f04a 44%,#a7c0ed35 75%);box-shadow:0 0 13px #fff8, inset 1px 2px 6px #fff9;opacity:0;animation:carebubble calc(3s + var(--seed)*.13s) linear infinite;animation-delay:calc(var(--seed)*-.28s)}
 .stage.bath-phase-1 .bath-live-cloud i{background:linear-gradient(138deg,#b6e3f766,#fff8);border-color:#d5f4ff}.stage.bath-phase-2 .bath-live-cloud i{opacity:.12}.stage.bath-phase-3 .bath-live-cloud i{border-color:#ffeddf;background:#fbe9ebaa}
 .stage.bath-phase-3{background-image:url('assets/scenes/bath.webp')}
-.afterbath-lotion{position:absolute;z-index:3;top:19%;left:42%;width:24%;height:58%;object-fit:contain;filter:drop-shadow(0 8px 7px #9b65545a);pointer-events:none}
+.afterbath-lotion{position:absolute;z-index:3;top:25%;left:42%;width:19%;height:46%;object-fit:contain;filter:drop-shadow(0 8px 7px #9b65545a);pointer-events:none}.lotion-note{position:absolute;z-index:5;left:50%;bottom:18%;transform:translateX(-50%);background:#fff8f0ea;border:2px solid #ddb39d;border-radius:999px;padding:7px 14px;font-size:12px;font-weight:900;color:#87604f;box-shadow:0 4px 10px #9c755635;}
 .bath-stella-full{position:absolute;bottom:6%;left:10%;width:25%;height:34%;object-fit:contain;pointer-events:none;z-index:4;filter:drop-shadow(0 6px 5px #85665444)}
 .care-step-count{color:#ac816d;font-size:11px;display:block;margin-top:6px}
 /* Sleeping both: high-res image shows both bodies and an actual duvet. Add only a subtle responsive top edge. */
-.sleep-duvet-rise{position:absolute;left:5%;right:5%;bottom:-1%;height:0;pointer-events:none;z-index:3;border-radius:46% 46% 2% 2%/15% 15% 0 0;background:repeating-linear-gradient(155deg,#c88f9255 0 18px,#ffe9d99c 18px 36px);border-top:0 solid #f9e8e2;box-shadow:0 -8px 18px #a0676c22;transition:height .28s ease,border-width .28s;opacity:.69}
-.sleep-duvet-rise.raised{height:18%;border-top-width:4px}
-.stage.sleep .sleep-night{background:linear-gradient(165deg,#25224470,#2528504a);animation:nightfade .5s ease-out}
+.sleep-cover-hint{position:absolute;left:15%;right:15%;bottom:9%;height:0;pointer-events:none;z-index:3;border-radius:999px;background:linear-gradient(180deg,#fff6ef66,#efcfb188);box-shadow:0 0 0 0 transparent;opacity:0;transition:opacity .2s ease,box-shadow .2s ease}.sleep-cover-hint.covered{opacity:1;box-shadow:0 0 0 4px #fff2e5aa,0 0 28px #ffead0aa}.sleep-cover-hint::after{content:'이불 정리 중';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12px;font-weight:900;color:#805c55;white-space:nowrap;opacity:calc(var(--cover, 0) / 100)}
+.stage.sleep .sleep-night{background:linear-gradient(165deg,#25224458,#2528503a);animation:nightfade .5s ease-out}
 .stage.sleep .sleep-lamp{right:11%;top:13%;}
 /* Truly seated dining pose, real table in front, dynamic chosen food and complete Stella. */
 .stage.feedstage{background-image:linear-gradient(#fff9f022,#f0d5bc1f),url('assets/scenes/home.webp');background-size:cover,185% auto;background-position:center,right 35% center;background-repeat:no-repeat;aspect-ratio:16/10}
@@ -40,10 +39,10 @@ main{padding:22px 24px 34px;min-height:76vh}.heading{display:flex;justify-conten
 .feed-chair{position:absolute;left:33%;top:28%;width:31%;height:36%;border:9px solid #98654f;border-radius:44% 44% 12% 12%;background:linear-gradient(140deg,#f9dabb,#e8ab85);box-shadow:0 11px 10px #573c2a36;z-index:2}
 .feedstage .feeding-actor{position:absolute;z-index:4;left:50%;top:15%;width:48%;height:62%;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:drop-shadow(0 6px 5px #77513f55)}
 .feedstage .feeding-actor.chewing{animation:feedchew .36s ease-in-out 2}
-.feedstage .feeding-cat{z-index:6;left:4%;bottom:9%;height:33%;width:27%;object-fit:contain;filter:drop-shadow(0 6px 4px #7352445e)}
+.feedstage .feeding-cat{display:none !important}
 .feed-table{position:absolute;left:11%;width:79%;bottom:-5%;height:45%;z-index:5;border:12px solid #ac7555;border-radius:49% 49% 12% 12%/45% 45% 8% 8%;background:repeating-linear-gradient(92deg,#e6b18a 0 42px,#ecc39f 42px 83px);box-shadow:0 16px 0 #8e564690,inset 0 5px 0 #fff4e6,inset 0 -6px 0 #bc8b65}
-.feedstage .food-plate{position:absolute;z-index:7;left:50%;bottom:3%;width:44%;height:25%;border:8px solid #fffaf3;box-shadow:0 10px 6px #69453152,inset 0 0 0 3px #d9bea5;background:radial-gradient(ellipse,#fffdfa,#f4e8d9);}
-.feedstage .food-plate img{width:92%;height:91%;object-fit:contain}
+.feedstage .food-plate{position:absolute;z-index:7;left:50%;bottom:3%;width:44%;height:25%;border:8px solid #fffaf3;box-shadow:0 10px 6px #69453152,inset 0 0 0 3px #d9bea5;background:radial-gradient(ellipse,#fffdfa,#f4e8d9);overflow:visible;}
+.feedstage .food-plate img{width:92%;height:91%;object-fit:contain;transform:scale(2);transform-origin:center center;}
 .feedstage .feed-bubble{z-index:7;right:4%;top:17%;max-width:35%;box-shadow:0 5px 14px #805b4530}
 @keyframes carebubble{0%{opacity:0;transform:translateY(18px) scale(.6)}10%{opacity:.78}85%{opacity:.6}100%{opacity:0;transform:translate(14px,-300px) scale(1.1)}}
 @keyframes nightfade{from{opacity:0}to{opacity:1}}
@@ -53,15 +52,16 @@ main{padding:22px 24px 34px;min-height:76vh}.heading{display:flex;justify-conten
  .actor-mood{width:24px;height:24px;font-size:13px;transform:translate(4px,-130%);border-width:1px}
  .mood-emoji{min-width:39px;height:39px;font-size:22px}
  .feedstage .feeding-actor{width:55%;height:60%;top:16%}
- .feedstage .feeding-cat{left:1%;bottom:9%;width:29%;height:30%}
  .feedstage .food-plate{width:53%;height:24%;bottom:4%;border-width:5px}
  .feedstage .feed-bubble{right:3%;top:17%;max-width:38%;font-size:10px;padding:6px 7px}
  .feed-table{height:45%;border-width:7px}
  .stage.bath,.stage.sleep{aspect-ratio:4/3}
  .stage.bath{background-position:51% 50%}
  .stage.sleep{background-position:48% 50%}
- .sleep-duvet-rise.raised{height:16%}
- .afterbath-lotion{left:39%;width:32%;height:60%;top:16%}
+ .sleep-cover-hint{left:12%;right:12%;bottom:10%}
+ .sleep-cover-hint::after{font-size:10px}
+ .afterbath-lotion{left:39%;width:26%;height:52%;top:19%}
+ .lotion-note{bottom:16%;font-size:10px;padding:6px 10px}
 }
 /* v2.1 finishing alignment */
 .feed-table{height:34%;bottom:-7%;}
@@ -73,3 +73,6 @@ main{padding:22px 24px 34px;min-height:76vh}.heading{display:flex;justify-conten
 .expression-portrait img{width:86px!important;height:86px!important;object-fit:contain;object-position:center top;filter:none!important}
 .expression-portrait small{font-size:12px;font-weight:900;color:#a15a51}
 @media(max-width:700px){.expression-portrait{right:2%;bottom:7%;width:74px;border-radius:14px}.expression-portrait img{width:62px!important;height:62px!important}.expression-portrait small{font-size:10px}}
+
+/* v2.1 user fixes */
+.actor-mood{display:none !important;}
