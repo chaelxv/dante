@@ -14,3 +14,62 @@ main{padding:22px 24px 34px;min-height:76vh}.heading{display:flex;justify-conten
 @media(max-width:700px){.topbar{grid-template-columns:1fr auto;padding:7px 10px;gap:7px}.brand{padding-right:6px}.brand img{width:43px;height:52px}.brand strong{font-size:12px}.brand em{font-size:16px}.brand .brand-paw{display:none}.coin-pill{padding:5px 9px}.coin-pill b{font-size:14px}.save-label{display:none}.time-pill{font-size:12px}.time-pill small{display:none}.nav{padding:6px;gap:5px}.nav-btn{min-width:79px;font-size:12px;padding:9px 6px;border-radius:11px}.nav-btn span{font-size:14px;margin-right:3px}main{padding:13px 10px 20px}.heading{align-items:start}.heading h1{font-size:23px}.heading p{font-size:12px}.daychip{font-size:10px}.home-layout{display:flex;flex-direction:column-reverse;gap:10px}.stats-panel{display:block}.stats-person{float:left;margin-right:14px;border:0}.stats-panel .statline{display:inline-block;width:calc(50% - 15px);margin:5px}.side-buttons{clear:both;grid-template-columns:repeat(2,1fr)}.room-art{border-radius:16px}.hotspot{padding:4px 6px;font-size:8px}.room-actor{width:19%;height:35%}.room-cat{width:18%}.bubble{font-size:9px;padding:5px;max-width:44%}.room-bottom .btn{flex:1 1 30%;font-size:11px;padding:9px 5px}.closet-grid{display:grid;grid-template-columns:1fr}.preview-card{flex-direction:column}.dressing-mirror{min-height:305px;max-width:320px}.dressing-mirror img{height:300px}.outfit-grid{gap:6px}.outfit-tile{border-radius:14px;padding:6px}.outfit-tile img{height:140px}.outfit-tile strong{font-size:11px}.expr-grid{grid-template-columns:repeat(3,1fr)}.stage{border-radius:16px}.stage-banner{font-size:11px;padding:6px 9px}.stage-progress{gap:10px;padding:10px}.stage-progress .meter h3{font-size:14px}.stage-progress .btnrow{width:100%}.stage-progress .btnrow .btn{flex:1}.cook-layout,.feed-layout{grid-template-columns:1fr}.recipe-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.recipe-btn{flex-direction:column;text-align:center;padding:4px}.recipe-btn img{width:78px;height:62px}.recipe-btn strong{font-size:10px}.recipe-btn small{font-size:9px}.cook-space{min-height:400px;padding:16px 8px}.cook-avatar{width:68px;height:82px}.board{min-width:90%;height:132px}.ingredient{font-size:12px;padding:9px}.bowl{width:220px;height:175px}.pan{width:230px;height:180px}.cook-actions .btn{font-size:11px}.feedstage{min-height:385px}.feeding-actor{top:18%;height:53%;width:49%}.feed-bubble{font-size:10px;padding:6px;top:17%}.feeding-cat{width:22%;left:8%;bottom:19%}.food-plate{width:56%;height:25%}.feed-inventory{grid-template-columns:repeat(2,minmax(0,1fr))}.feed-choice{padding:4px}.feed-choice img{width:65px;height:50px}.feed-choice small{font-size:10px}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.shop-item .shop-img{height:118px}.shop-item h3{font-size:14px}.shop-item .btn{font-size:11px}.diary-grid,.settings-grid{grid-template-columns:1fr}.site-footer{font-size:9px;padding:13px;flex-direction:column}}
 @media(max-width:400px){.outfit-tile img{height:116px}.home-layout .stats-panel .statline{width:45%}.hotspot{font-size:7px;padding:3px 5px}.room-bottom .btn{font-size:10px}.feedstage{min-height:315px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ── v2: fully illustrated care scenes and responsive, working layers ── */
+.actor-mood{position:absolute;z-index:6;transform:translate(14px,-145%);width:44px;height:44px;display:grid;place-items:center;border:2px solid #fff5e5;border-radius:50%;font-size:24px;font-weight:950;color:#dc7b91;background:#fff8edee;box-shadow:0 6px 14px #8f625344;pointer-events:none;transition:left .7s,top .7s,transform .5s;animation:moodfloat 2.3s ease-in-out infinite}
+.actor-mood.mood-sleepy{color:#9589ad}.actor-mood.mood-surprised{color:#d18969}.actor-mood.mood-idle{color:#c1a16f}
+.dressing-mirror{position:relative;isolation:isolate}.mood-emoji{position:absolute;right:13%;top:12%;display:grid;place-items:center;min-width:56px;height:56px;border-radius:50%;border:2px solid #f9dccb;background:#fff8ed;color:#e3979c;font-size:31px;font-weight:950;box-shadow:0 8px 15px #8f625326;animation:moodfloat 2.1s infinite ease-in-out}.expr-btn.chosen{outline:3px solid #e99f8b;background:#ffe6d6;box-shadow:inset 0 0 0 2px #fff}
+.stage.bath,.stage.sleep{aspect-ratio:16/10;background-size:cover;background-position:center;}
+.stage.bath{background-image:url('assets/scenes/bath_illustrated.webp')}
+.stage.sleep{background-image:url('assets/scenes/sleep_illustrated.webp')}
+/* The premium paintings already contain Dante and Stella; never layer detached heads over them. */
+.bath-live-cloud{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}.bath-live-cloud i{position:absolute;bottom:12%;width:clamp(11px,2.1vw,29px);height:clamp(11px,2.1vw,29px);border-radius:50%;border:2px solid #ffffffc9;background:radial-gradient(circle at 30% 25%,#fff,#b5d8f04a 44%,#a7c0ed35 75%);box-shadow:0 0 13px #fff8, inset 1px 2px 6px #fff9;opacity:0;animation:carebubble calc(3s + var(--seed)*.13s) linear infinite;animation-delay:calc(var(--seed)*-.28s)}
+.stage.bath-phase-1 .bath-live-cloud i{background:linear-gradient(138deg,#b6e3f766,#fff8);border-color:#d5f4ff}.stage.bath-phase-2 .bath-live-cloud i{opacity:.12}.stage.bath-phase-3 .bath-live-cloud i{border-color:#ffeddf;background:#fbe9ebaa}
+.stage.bath-phase-3{background-image:url('assets/scenes/bath.webp')}
+.afterbath-lotion{position:absolute;z-index:3;top:19%;left:42%;width:24%;height:58%;object-fit:contain;filter:drop-shadow(0 8px 7px #9b65545a);pointer-events:none}
+.bath-stella-full{position:absolute;bottom:6%;left:10%;width:25%;height:34%;object-fit:contain;pointer-events:none;z-index:4;filter:drop-shadow(0 6px 5px #85665444)}
+.care-step-count{color:#ac816d;font-size:11px;display:block;margin-top:6px}
+/* Sleeping both: high-res image shows both bodies and an actual duvet. Add only a subtle responsive top edge. */
+.sleep-duvet-rise{position:absolute;left:5%;right:5%;bottom:-1%;height:0;pointer-events:none;z-index:3;border-radius:46% 46% 2% 2%/15% 15% 0 0;background:repeating-linear-gradient(155deg,#c88f9255 0 18px,#ffe9d99c 18px 36px);border-top:0 solid #f9e8e2;box-shadow:0 -8px 18px #a0676c22;transition:height .28s ease,border-width .28s;opacity:.69}
+.sleep-duvet-rise.raised{height:18%;border-top-width:4px}
+.stage.sleep .sleep-night{background:linear-gradient(165deg,#25224470,#2528504a);animation:nightfade .5s ease-out}
+.stage.sleep .sleep-lamp{right:11%;top:13%;}
+/* Truly seated dining pose, real table in front, dynamic chosen food and complete Stella. */
+.stage.feedstage{background-image:linear-gradient(#fff9f022,#f0d5bc1f),url('assets/scenes/home.webp');background-size:cover,185% auto;background-position:center,right 35% center;background-repeat:no-repeat;aspect-ratio:16/10}
+.feedstage::before{display:none}
+.feed-chair{position:absolute;left:33%;top:28%;width:31%;height:36%;border:9px solid #98654f;border-radius:44% 44% 12% 12%;background:linear-gradient(140deg,#f9dabb,#e8ab85);box-shadow:0 11px 10px #573c2a36;z-index:2}
+.feedstage .feeding-actor{position:absolute;z-index:4;left:50%;top:15%;width:48%;height:62%;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:drop-shadow(0 6px 5px #77513f55)}
+.feedstage .feeding-actor.chewing{animation:feedchew .36s ease-in-out 2}
+.feedstage .feeding-cat{z-index:6;left:4%;bottom:9%;height:33%;width:27%;object-fit:contain;filter:drop-shadow(0 6px 4px #7352445e)}
+.feed-table{position:absolute;left:11%;width:79%;bottom:-5%;height:45%;z-index:5;border:12px solid #ac7555;border-radius:49% 49% 12% 12%/45% 45% 8% 8%;background:repeating-linear-gradient(92deg,#e6b18a 0 42px,#ecc39f 42px 83px);box-shadow:0 16px 0 #8e564690,inset 0 5px 0 #fff4e6,inset 0 -6px 0 #bc8b65}
+.feedstage .food-plate{position:absolute;z-index:7;left:50%;bottom:3%;width:44%;height:25%;border:8px solid #fffaf3;box-shadow:0 10px 6px #69453152,inset 0 0 0 3px #d9bea5;background:radial-gradient(ellipse,#fffdfa,#f4e8d9);}
+.feedstage .food-plate img{width:92%;height:91%;object-fit:contain}
+.feedstage .feed-bubble{z-index:7;right:4%;top:17%;max-width:35%;box-shadow:0 5px 14px #805b4530}
+@keyframes carebubble{0%{opacity:0;transform:translateY(18px) scale(.6)}10%{opacity:.78}85%{opacity:.6}100%{opacity:0;transform:translate(14px,-300px) scale(1.1)}}
+@keyframes nightfade{from{opacity:0}to{opacity:1}}
+@keyframes moodfloat{50%{transform:translateY(-6px) rotate(7deg)}}
+@keyframes feedchew{0%,100%{transform:translateX(-50%) translateY(0)}45%{transform:translateX(-50%) translateY(-5px) scale(1.025)}}
+@media(max-width:700px){
+ .actor-mood{width:24px;height:24px;font-size:13px;transform:translate(4px,-130%);border-width:1px}
+ .mood-emoji{min-width:39px;height:39px;font-size:22px}
+ .feedstage .feeding-actor{width:55%;height:60%;top:16%}
+ .feedstage .feeding-cat{left:1%;bottom:9%;width:29%;height:30%}
+ .feedstage .food-plate{width:53%;height:24%;bottom:4%;border-width:5px}
+ .feedstage .feed-bubble{right:3%;top:17%;max-width:38%;font-size:10px;padding:6px 7px}
+ .feed-table{height:45%;border-width:7px}
+ .stage.bath,.stage.sleep{aspect-ratio:4/3}
+ .stage.bath{background-position:51% 50%}
+ .stage.sleep{background-position:48% 50%}
+ .sleep-duvet-rise.raised{height:16%}
+ .afterbath-lotion{left:39%;width:32%;height:60%;top:16%}
+}
+/* v2.1 finishing alignment */
+.feed-table{height:34%;bottom:-7%;}
+.feedstage .feeding-actor{width:41%;height:64%;top:14%;}
+.stage.feedstage .feeding-cat{bottom:8%}
+@media(max-width:700px){.feed-table{height:35%;bottom:-7%}.feedstage .feeding-actor{width:49%;height:64%;top:13%;}.stage.feedstage .feeding-cat{bottom:7%}}
+/* Every outfit retains its own illustrated clothing; expression portrait updates independently. */
+.expression-portrait{position:absolute;right:5%;bottom:10%;z-index:4;display:flex;flex-direction:column;align-items:center;width:105px;padding:3px 4px 7px;border:2px solid #dbad98;border-radius:24px;background:#fffaf4f0;box-shadow:0 6px 13px #98715b2a;pointer-events:none}
+.expression-portrait img{width:86px!important;height:86px!important;object-fit:contain;object-position:center top;filter:none!important}
+.expression-portrait small{font-size:12px;font-weight:900;color:#a15a51}
+@media(max-width:700px){.expression-portrait{right:2%;bottom:7%;width:74px;border-radius:14px}.expression-portrait img{width:62px!important;height:62px!important}.expression-portrait small{font-size:10px}}
